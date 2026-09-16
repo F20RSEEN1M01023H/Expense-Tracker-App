@@ -31,7 +31,8 @@ export const getExpenseById = async (req, res, next) => {
 export const deleteExpense = async (req, res, next) => {
   try {
     await expenseService.deleteExpense(req.params.id);
-    return res.status(204).send();
+
+    return Response(res, 200, true, 'Expense deleted successfully', null);
   } catch (error) {
     next(error);
   }
